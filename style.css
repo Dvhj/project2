@@ -1,0 +1,36 @@
+.container {
+	margin: 50px auto;
+	width:45%;
+	border:2px solid gray;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.cart {
+	border: 1px solid green;
+	height: 200px;
+	text-align: center;
+	background-color: rgba(12, 54, 23, 0.1);
+	font-size: 50px;
+}
+
+img {
+	margin-top: 2%;
+	margin-left: 4%;
+	display: none;
+	width: 90%;
+	transition: 1s;
+}
+
+@media screen and (max-width: 1600px) {
+	.cart {
+		height: 170px;
+	}
+}
+
+@media screen and (max-width: 1350px) {
+	.container {
+		width:45%;
+	.cart {
+		height: 130px;
+	}
+}
