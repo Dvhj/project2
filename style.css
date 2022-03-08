@@ -21,6 +21,19 @@ img {
 	transition: 1s;
 }
 
+.winContainer{
+	position: absolute;
+	top: 30%;
+	left: 35%;
+	font-size: 150px;
+	font-weight: bold;
+	transition: 3s;
+	color: purple;
+	font-family: sans-serif;
+	background: #ffffff;
+	border-radius: 50px;
+}
+
 @media screen and (max-width: 1600px) {
 	.cart {
 		height: 170px;
