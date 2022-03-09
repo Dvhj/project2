@@ -51,7 +51,7 @@ const win = () => {
 			} else {
 				array.push(item.id)
 				console.log(array)
-				if (array.length == 16) {
+				if (array.length == 2) {
 					console.log('win!!')
 					let winBox = document.createElement('div')
 					winBox.classList.add('winBox')
