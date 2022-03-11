@@ -1,3 +1,7 @@
+const startScreen = document.querySelector('.startScreen')
+const startBtn = document.querySelector('.startBtn')
+const endBtn = document.querySelector('.endBtn')
+const container = document.querySelector('.container')
 const carts = document.querySelectorAll('.cart')
 const winCont = document.querySelector('.winContainer')
 
@@ -6,6 +10,21 @@ let count = 0;
 let x;
 let y;
 let falseCount = 100;
+
+
+const db = (event) => {
+	event.preventDefault()
+	console.log(Math.floor(Math.random()*10))
+	container.classList.add('up')
+}
+
+startBtn.addEventListener('click', db)
+
+endBtn.addEventListener('click', (event) => {
+	event.preventDefault()
+	container.classList.remove('up')
+})
+
 
 carts.forEach(cart => {
 	cart.addEventListener('click', () => {
@@ -57,6 +76,7 @@ const win = () => {
 					winBox.classList.add('winBox')
 					winBox.innerHTML = 'ПОБЕДА'
 					winCont.append(winBox)
+					setTimeout( () => container.classList.remove('up'), 1000)
 				}
 			}
 		}

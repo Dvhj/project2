@@ -1,10 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Khula&display=swap');
+
+body {
+	font-family: 'Khula', sans-serif;
+	overflow: hidden;
+	height: 100vh;
+}
+
+.startScreen {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+  	width: 100vw;
+}
+
+.startScreen a {
+	text-decoration: none;
+	margin-left: 5%;
+	font-size:20px;
+	font-weight:bold;
+	color: #1634ff;
+}
+
 .container {
-	margin: 50px auto;
+	margin: 0 auto;
 	width:45%;
 	border:2px solid gray;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
+	transition: margin 1s ease-out;
 }
+
+.container.up {
+	margin-top: -100vh;
+}
+
+
 .cart {
 	border: 1px solid green;
 	height: 200px;
@@ -29,9 +59,9 @@ img {
 	font-size: 600%;
 	text-align: center;
 	font-weight: bold;
-	color: purple;
+	color: white;
 	font-family: sans-serif;
-	background: rgba(100, 100, 100, 0.2);
+	background: rgba(100, 100, 100, 0.5);
 	border-radius: 50px;
 }
 
