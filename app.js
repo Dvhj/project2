@@ -1,4 +1,4 @@
-const startScreen = document.querySelector('.startScreen')
+
 const startBtn = document.querySelector('.startBtn')
 const endBtn = document.querySelector('.endBtn')
 const container = document.querySelector('.container')
@@ -31,7 +31,7 @@ let x;
 let y;
 let falseCount = 100;
 
-
+// выводим данные на сайт
 const db = (event) => {
 	let dbCount = 0
 	event.preventDefault()
@@ -45,6 +45,7 @@ const db = (event) => {
 	  }
 	})
 	carts.forEach((item) => {
+		item.style.cursor = 'pointer'
 		item.dataset.text = dataOfImages[dbCount].letter
 		item.id = dataOfImages[dbCount].id
 		item.innerHTML = `
@@ -56,7 +57,9 @@ const db = (event) => {
 	startBtn.style.display = 'none'
 }
 
+// создаем набор рандомных id
 function randomiser () {
+	localStorage.clear()
 	let random = Math.floor(Math.random()*16)
 	if ( randomArr.includes(random)){
 		randomiser()
@@ -67,9 +70,10 @@ function randomiser () {
 	}
 }
 
-
+// старт
 startBtn.addEventListener('click', db)
 
+// конец
 endBtn.addEventListener('click', (event) => {
 	event.preventDefault()
 	startBtn.style.display = 'block'
@@ -89,7 +93,7 @@ endBtn.addEventListener('click', (event) => {
 	winCont.children[0].remove()
 })
 
-
+// основная механика игры
 carts.forEach(cart => {
 	cart.addEventListener('click', () => {
 		if ( count === 0 && cart.id < 100) {
@@ -111,6 +115,7 @@ carts.forEach(cart => {
 	})
 })
 
+// проверка на совпадение объектов
 function comeback(cart){
 	if (localStorage.getItem(x) === localStorage.getItem(y)) {
 	 	console.log(cart.id = `${++falseCount}`)
@@ -124,6 +129,7 @@ function comeback(cart){
 	win()
 }
 
+// проверка на победу
 const win = () => {
 	carts.forEach( item => {
 		if (item.id < 100) {

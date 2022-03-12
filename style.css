@@ -2,14 +2,18 @@
 
 body {
 	font-family: 'Khula', sans-serif;
-	overflow: hidden;
 	height: 100vh;
+	background: rgba(12, 54, 23, 0.1);
 }
 
 .startScreen {
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	height: 10%;
+}
 
+.nav {
+	width: 90%;
 }
 
 .startScreen a {
@@ -23,10 +27,11 @@ body {
 .container {
 	margin: 0 auto;
 	width:45%;
-	border:2px solid gray;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	transition: margin 1s ease-out;
+	border-radius: 5%; 
+	gap:0.2%;
 }
 
 .container.up {
@@ -35,18 +40,28 @@ body {
 
 
 .cart {
-	border: 1px solid green;
 	height: 200px;
 	text-align: center;
-	background-color: rgba(12, 54, 23, 0.1);
+	background: rgba(12, 54, 23, 0.3);
 	font-size: 50px;
+	border-radius: 19%;
+	box-shadow: 1px 1px 2px lightgray;
+	transition: background 1s;
 }
 
-img {
-	margin-top: 2%;
-	margin-left: 4%;
+.cart:hover {
+	background: rgba(12, 54, 23, 0.4);
+	transition: background 1s;
+}
+
+.cart:active {
+	background: rgba(12, 54, 23, 0.9);
+}
+
+.cart img {
+	margin: 2% auto;
 	display: none;
-	width: 90%;
+	width: 85%;
 	transition: 1s;
 }
 
@@ -63,6 +78,8 @@ img {
 	background: rgba(100, 100, 100, 0.5);
 	border-radius: 50px;
 }
+
+
 
 @media screen and (max-width: 1600px) {
 	.cart {
