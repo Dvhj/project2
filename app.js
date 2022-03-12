@@ -5,7 +5,27 @@ const container = document.querySelector('.container')
 const carts = document.querySelectorAll('.cart')
 const winCont = document.querySelector('.winContainer')
 
+const dataOfImages = [
+	{ letter:'A', img:"img/bird.png"},
+	{ letter:'B', img:"img/fox.png"},
+	{ letter:'C', img:"img/elephant.png"},
+	{ letter:'D', img:"img/koala.png"},
+	{ letter:'E', img:"img/cat.png"},
+	{ letter:'F', img:"img/butterfly.png"},
+	{ letter:'G', img:"img/turtle.png"},
+	{ letter:'H', img:"img/fish.png"},
+	{ letter:'A', img:"img/bird.png"},
+	{ letter:'B', img:"img/fox.png"},
+	{ letter:'C', img:"img/elephant.png"},
+	{ letter:'D', img:"img/koala.png"},
+	{ letter:'E', img:"img/cat.png"},
+	{ letter:'F', img:"img/butterfly.png"},
+	{ letter:'G', img:"img/turtle.png"},
+	{ letter:'H', img:"img/fish.png"},
+]
+let randomArr = []
 let array = []
+let countRandom = 1
 let count = 0;
 let x;
 let y;
@@ -13,16 +33,60 @@ let falseCount = 100;
 
 
 const db = (event) => {
+	let dbCount = 0
 	event.preventDefault()
-	console.log(Math.floor(Math.random()*10))
-	container.classList.add('up')
+	dataOfImages.forEach(randomiser)
+	dataOfImages.sort(function (a, b) {
+	  if (a.id > b.id) {
+	    return 1;
+	  }
+	  if (a.id < b.id) {
+	    return -1;
+	  }
+	})
+	carts.forEach((item) => {
+		item.dataset.text = dataOfImages[dbCount].letter
+		item.id = dataOfImages[dbCount].id
+		item.innerHTML = `
+			<img src=${dataOfImages[dbCount].img} alt="">
+		`
+		dbCount++
+
+	})
+	startBtn.style.display = 'none'
 }
+
+function randomiser () {
+	let random = Math.floor(Math.random()*16)
+	if ( randomArr.includes(random)){
+		randomiser()
+	} else{
+		randomArr.push(random)
+		dataOfImages[random].id = countRandom
+		countRandom++
+	}
+}
+
 
 startBtn.addEventListener('click', db)
 
 endBtn.addEventListener('click', (event) => {
 	event.preventDefault()
-	container.classList.remove('up')
+	startBtn.style.display = 'block'
+	randomArr.length = 0
+	array.length = 0
+	carts.forEach((item) => {
+		// item.children[0].style.display = 'none'
+		item.removeAttribute('id')
+		item.removeAttribute('data-text')
+		item.children[0].src = ''
+	})
+	dataOfImages.forEach((item) => {
+		delete item.id
+	})
+	countRandom = 1
+	count = 0
+	winCont.children[0].remove()
 })
 
 
@@ -76,7 +140,6 @@ const win = () => {
 					winBox.classList.add('winBox')
 					winBox.innerHTML = 'ПОБЕДА'
 					winCont.append(winBox)
-					setTimeout( () => container.classList.remove('up'), 1000)
 				}
 			}
 		}
