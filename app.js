@@ -14,6 +14,8 @@ const dataOfImages = [
 	{ letter:'F', img:"img/butterfly.png"},
 	{ letter:'G', img:"img/turtle.png"},
 	{ letter:'H', img:"img/fish.png"},
+	{ letter:'I', img:"img/rabbit.png"},
+	{ letter:'J', img:"img/dog.png"},
 	{ letter:'A', img:"img/bird.png"},
 	{ letter:'B', img:"img/fox.png"},
 	{ letter:'C', img:"img/elephant.png"},
@@ -22,6 +24,8 @@ const dataOfImages = [
 	{ letter:'F', img:"img/butterfly.png"},
 	{ letter:'G', img:"img/turtle.png"},
 	{ letter:'H', img:"img/fish.png"},
+	{ letter:'I', img:"img/rabbit.png"},
+	{ letter:'J', img:"img/dog.png"}
 ]
 let randomArr = []
 let array = []
@@ -45,7 +49,6 @@ const db = (event) => {
 	  }
 	})
 	carts.forEach((item) => {
-		item.style.cursor = 'pointer'
 		item.dataset.text = dataOfImages[dbCount].letter
 		item.id = dataOfImages[dbCount].id
 		item.innerHTML = `
@@ -60,7 +63,7 @@ const db = (event) => {
 // создаем набор рандомных id
 function randomiser () {
 	localStorage.clear()
-	let random = Math.floor(Math.random()*16)
+	let random = Math.floor(Math.random()*20)
 	if ( randomArr.includes(random)){
 		randomiser()
 	} else{
@@ -76,7 +79,7 @@ startBtn.addEventListener('click', db)
 // конец
 endBtn.addEventListener('click', (event) => {
 	event.preventDefault()
-	startBtn.style.display = 'block'
+	startBtn.style.display = 'inline'
 	randomArr.length = 0
 	array.length = 0
 	carts.forEach((item) => {
@@ -140,7 +143,7 @@ const win = () => {
 			} else {
 				array.push(item.id)
 				console.log(array)
-				if (array.length == 16) {
+				if (array.length == 20) {
 					console.log('win!!')
 					let winBox = document.createElement('div')
 					winBox.classList.add('winBox')

@@ -3,7 +3,8 @@
 body {
 	font-family: 'Khula', sans-serif;
 	height: 100vh;
-	background: rgba(12, 54, 23, 0.1);
+	background: rgba(12, 54, 23, 0.3);
+	overflow: hidden;
 }
 
 .startScreen {
@@ -16,22 +17,33 @@ body {
 	width: 90%;
 }
 
-.startScreen a {
+.startScreen img {
+	margin-right: 5%;
+}
+
+.nav div {
+	margin: 5px;
+}
+
+.nav a {
 	text-decoration: none;
 	margin-left: 5%;
 	font-size:20px;
 	font-weight:bold;
-	color: #1634ff;
+	color: rgba(12, 54, 23, 0.7);
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 10px;
+	padding: 0 1%;
 }
 
 .container {
-	margin: 0 auto;
-	width:45%;
+	margin: 30px auto 0;
+	width:55%;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	transition: margin 1s ease-out;
 	border-radius: 5%; 
-	gap:0.2%;
+	gap:0.3%;
 }
 
 .container.up {
@@ -40,26 +52,30 @@ body {
 
 
 .cart {
-	height: 200px;
+	height: 190px;
 	text-align: center;
-	background: rgba(12, 54, 23, 0.3);
+	backdrop-filter: blur(10px) saturate(143%);
+   -webkit-backdrop-filter: blur(10px) saturate(143%);
+   background-color: rgba(255, 255, 255, 0.4);
+   border: 1px solid rgba(209, 213, 219, 0.3);
 	font-size: 50px;
 	border-radius: 19%;
-	box-shadow: 1px 1px 2px lightgray;
+/*	box-shadow: 1px 1px 2px lightgray;*/
 	transition: background 1s;
 }
 
 .cart:hover {
 	background: rgba(12, 54, 23, 0.4);
 	transition: background 1s;
+	cursor: pointer;
 }
 
 .cart:active {
-	background: rgba(12, 54, 23, 0.9);
+	background: gray;
 }
 
 .cart img {
-	margin: 2% auto;
+	margin: 3% auto;
 	display: none;
 	width: 85%;
 	transition: 1s;
@@ -73,17 +89,17 @@ body {
 	font-size: 600%;
 	text-align: center;
 	font-weight: bold;
-	color: white;
+	color: gray;
 	font-family: sans-serif;
-	background: rgba(100, 100, 100, 0.5);
-	border-radius: 50px;
+	background-color: rgba(255, 255, 255, 0.67);
+	border-radius: 25px;
 }
 
 
 
 @media screen and (max-width: 1600px) {
 	.cart {
-		height: 170px;
+		height: 160px;
 	}
 }
 
@@ -91,7 +107,7 @@ body {
 	.container {
 		width:70%;}
 	.cart {
-		height: 200px;
+		height: 180px;
 	}
 }
 
@@ -99,7 +115,7 @@ body {
 	.container {
 		width:80%;}
 	.cart {
-		height: 180px;
+		height: 160px;
 	}
 }
 
@@ -108,7 +124,7 @@ body {
 		width:90%;
 	}
 	.cart {
-		height: 170px;
+		height: 150px;
 	}
 }
 
@@ -116,7 +132,7 @@ body {
 	.container {
 		width:90%;}
 	.cart {
-		height: 150px;
+		height: 130px;
 	}
 }
 
@@ -124,7 +140,7 @@ body {
 	.container {
 		width:90%;}
 	.cart {
-		height: 120px;
+		height: 100px;
 	}
 }
 
@@ -132,7 +148,7 @@ body {
 	.container {
 		width:90%;}
 	.cart {
-		height: 100px;
+		height: 90px;
 	}
 	.winContainer{
 		top: 10%;
@@ -143,6 +159,6 @@ body {
 	.container {
 		width:90%;}
 	.cart {
-		height: 80px;
+		height: 60px;
 	}
 }
