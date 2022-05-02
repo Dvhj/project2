@@ -1,4 +1,3 @@
-
 const startBtn = document.querySelector('.startBtn')
 const endBtn = document.querySelector('.endBtn')
 const container = document.querySelector('.container')
@@ -58,6 +57,7 @@ const db = (event) => {
 
 	})
 	startBtn.style.display = 'none'
+	mainGame()
 }
 
 // создаем набор рандомных id
@@ -97,26 +97,28 @@ endBtn.addEventListener('click', (event) => {
 })
 
 // основная механика игры
-carts.forEach(cart => {
-	cart.addEventListener('click', () => {
-		if ( count === 0 && cart.id < 100) {
-			count++
-			cart.children[0].style.display = 'block'
-			x = cart.id
-			localStorage.setItem(`${cart.id}`, cart.dataset.text)
-		} else if (cart.id === x || cart.id > 100) {
-			return
-		} else if (count === 1) {
-			count = 0
-			cart.children[0].style.display = 'block'
-			y = cart.id
-			localStorage.setItem(`${cart.id}`, cart.dataset.text)
-			comeback(cart)
-		} else if (count > 1) {
-			return
-		}
+function mainGame() {
+	carts.forEach(cart => {
+		cart.addEventListener('click', () => {
+			if ( count === 0 && cart.id < 100) {
+				count++
+				cart.children[0].style.display = 'block'
+				x = cart.id
+				localStorage.setItem(`${cart.id}`, cart.dataset.text)
+			} else if (cart.id === x || cart.id > 100) {
+				return
+			} else if (count === 1) {
+				count = 0
+				cart.children[0].style.display = 'block'
+				y = cart.id
+				localStorage.setItem(`${cart.id}`, cart.dataset.text)
+				comeback(cart)
+			} else if (count > 1) {
+				return
+			}
+		})
 	})
-})
+}
 
 // проверка на совпадение объектов
 function comeback(cart){
@@ -154,4 +156,5 @@ const win = () => {
 		}
 	})
 }
+
 
