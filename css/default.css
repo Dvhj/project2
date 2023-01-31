@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Khula&display=swap');
+
+html{
+	box-sizing: border-box;
+}
+
+*, *::after, *::before{
+	box-sizing: iherit;
+}
+
+body {
+	font-family: 'Khula', sans-serif;
+	height: 100vh;
+	background: rgba(12, 54, 23, 0.3);
+	overflow: hidden;
+}
+
+.visually-hidden{
+	position: fixed;
+	transform: scale(0);
+}

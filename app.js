@@ -56,7 +56,7 @@ const db = (event) => {
 		dbCount++
 
 	})
-	startBtn.style.display = 'none'
+	startBtn.style.color = 'rgba(12, 54, 23, 0.4)'
 	mainGame()
 }
 
@@ -79,7 +79,7 @@ startBtn.addEventListener('click', db)
 // конец
 endBtn.addEventListener('click', (event) => {
 	event.preventDefault()
-	startBtn.style.display = 'inline'
+	startBtn.style.color = 'rgba(12, 54, 23, 0.7)'
 	randomArr.length = 0
 	array.length = 0
 	carts.forEach((item) => {
